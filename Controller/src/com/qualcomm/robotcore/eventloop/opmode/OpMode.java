@@ -36,6 +36,7 @@ Modified by contributors to Virtual_Robot project.
 
 package com.qualcomm.robotcore.eventloop.opmode;
 
+import com.qualcomm.robotcore.hardware.GamePad;
 import virtual_robot.controller.VirtualRobotController;
 
 import java.util.concurrent.TimeUnit;
