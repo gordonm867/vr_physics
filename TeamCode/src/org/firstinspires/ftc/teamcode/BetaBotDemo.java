@@ -66,7 +66,7 @@ public class BetaBotDemo extends LinearOpMode {
         while (opModeIsActive()){
             double px = gamepad1.left_stick_x;
             double py = -gamepad1.left_stick_y;
-            double pa = gamepad1.left_trigger - gamepad1.right_trigger;
+            double pa = gamepad1.right_stick_x;
             if (Math.abs(pa) < 0.05) pa = 0;
             double p1 = -px + py - pa;
             double p2 = px + py + -pa;
