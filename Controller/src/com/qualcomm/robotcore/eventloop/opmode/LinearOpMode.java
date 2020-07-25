@@ -1,5 +1,8 @@
 package com.qualcomm.robotcore.eventloop.opmode;
 
+import com.qualcomm.robotcore.hardware.GamePad;
+import virtual_robot.controller.VirtualRobotApplication;
+
 /**
  * Virtual Robot's implementation of LinearOpMode
  *
