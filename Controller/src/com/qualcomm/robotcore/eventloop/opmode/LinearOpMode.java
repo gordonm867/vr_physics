@@ -173,6 +173,20 @@ public abstract class LinearOpMode extends OpMode {
     }
 
     protected void handleLoop() {
+        
+        VirtualRobotApplication app = VirtualRobotApplication.getInstance();
+        if(atRest(gamepad1)) {
+            gamepad1.left_stick_x = app.left ? 1 : app.right ? -1 : 0;
+            gamepad1.left_stick_y = app.up ? 1 : app.down ? -1 : 0;
+            gamepad1.right_stick_x = app.q ? -1 : app.e ? 1 : 0;
+            gamepad1.a = app.a;
+            gamepad1.b = app.b;
+            gamepad1.x = app.x;
+            gamepad1.y = app.y;
+            gamepad1.right_stick_y = app.w ? 1 : app.skey ? -1 : 0;
+            gamepad1.dpad_up = app.g;
+            gamepad1.dpad_down = app.h;
+        }
 
         //If runOpMode has exited, check for exceptions, shut down the executorService, then interrupt the opMode thread (currentThread)
         if (helper.isFinished()) {
