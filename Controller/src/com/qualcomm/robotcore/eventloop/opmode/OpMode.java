@@ -184,4 +184,8 @@ public abstract class OpMode extends VirtualRobotController.OpModeBase {
     public void internalPostLoop() {
         telemetry.update();
     }
+    
+    public boolean atRest(GamePad gamepad) {
+        return gamepad.left_stick_y == 0 && gamepad.left_stick_x == 0 && gamepad.right_stick_y == 0 && gamepad.right_stick_x == 0 && gamepad.left_trigger == 0 && gamepad.right_trigger == 0 && !gamepad.right_bumper && !gamepad.left_bumper && !gamepad.dpad_down && !gamepad.dpad_left && !gamepad.dpad_right && !gamepad.dpad_up && !gamepad.b && !gamepad.x && !gamepad.y && !gamepad.a && !gamepad.left_stick_button && !gamepad.right_stick_button && !gamepad.start;
+    }
 }
