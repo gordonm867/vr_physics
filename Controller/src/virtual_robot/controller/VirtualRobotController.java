@@ -500,6 +500,7 @@ public class VirtualRobotController {
             while (opModeStarted && !Thread.currentThread().isInterrupted()) {
                 //For regular opMode, run user-defined loop() method. For Linear opMode, loop() checks whether
                 //runOpMode has exited; if so, it interrupts the opModeThread.
+                opMode.fixGamepad();
                 opMode.loop();
                 //For regular op mode only, update telemetry after each execution of loop()
                 //For linear op mode, do-nothing
@@ -706,6 +707,22 @@ public class VirtualRobotController {
             gamepad1 = gamePad1;
             this.gamepad2 = gamePad2;
             telemetry = new TelemetryImpl();
+        }
+        
+        public void fixGamepad() {
+            VirtualRobotApplication app = VirtualRobotApplication.getInstance();
+            if(atRest(gamepad1)) {
+                gamepad1.left_stick_x = app.left ? 1 : app.right ? -1 : 0;
+                gamepad1.left_stick_y = app.up ? 1 : app.down ? -1 : 0;
+                gamepad1.right_stick_x = app.q ? -1 : app.e ? 1 : 0;
+                gamepad1.a = app.a;
+                gamepad1.b = app.b;
+                gamepad1.x = app.x;
+                gamepad1.y = app.y;
+                gamepad1.right_stick_y = app.w ? 1 : app.skey ? -1 : 0;
+                gamepad1.dpad_up = app.g;
+                gamepad1.dpad_down = app.h;
+            }
         }
     }
 
